@@ -11,10 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const apiKey = process.env.SHIELD_PUBLISHABLE_KEY as string;
     const apiSecret = process.env.SHIELD_SECRET_KEY as string;
-    const encryptionShare = process.env.SHIELD_ENCRYPTION_SHARE as string;
+    const encryptionShare = process.env.SHIELD_ENCRYPTION_KEY as string;
 
     if (!apiKey || !apiSecret || !encryptionShare) {
-      console.error('[OPENFORT] Missing required environment variables. SHIELD_PUBLISHABLE_KEY, SHIELD_SECRET_KEY, or SHIELD_ENCRYPTION_SHARE is not set.');
+      console.error('[OPENFORT] Missing required environment variables. SHIELD_PUBLISHABLE_KEY, SHIELD_SECRET_KEY, or SHIELD_ENCRYPTION_KEY is not set.');
       return res.status(500).json({ error: '[OPENFORT] Missing required environment variables.' });
     }
 
